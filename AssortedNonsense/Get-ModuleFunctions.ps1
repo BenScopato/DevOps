@@ -18,6 +18,7 @@ if ($funcs.count -gt 0 -and $errs.count -eq 0) {
         $line = ($f-1)
         $end = $null
         if ($modCont[$line].IndexOf("{") -gt 0) {$end = ($modCont[$line].IndexOf("{"))-9}
+        elseif ($modCont[$line].IndexOf("(") -gt 0) {$end = ($modCont[$line].IndexOf("("))-9}
         else {$end = $modCont[$line].Length-9}
         $funcNames += $modCont[$line].Substring(9,$end)
     }
